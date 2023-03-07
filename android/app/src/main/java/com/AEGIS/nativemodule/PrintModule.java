@@ -66,7 +66,11 @@ public class PrintModule extends ReactContextBaseJavaModule {
             // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
             if (mPrinter.startCommunication()) {
                 show("Printer Connect", 1);
-                if (mPrinter.startPTTPrint(1, null)) {
+                // if (mPrinter.startPTTPrint(1, "UTF-8")) {
+                // if (mPrinter.startPTTPrint(1, "iso-8859-1")) {
+                // if (mPrinter.startPTTPrint(1, "x-windows-949")) {
+                // if (mPrinter.startPTTPrint(1, "ksc5601")) {
+                if (mPrinter.startPTTPrint(1, "EUC-KR")) {
                     mPrinter.replaceTextIndex("{custOpId:" + id + ",opWorkTp:" + tp + "}", 0);
                     mPrinter.replaceTextIndex(name, 1);
                     // mPrinter.replaceTextName("{custOpId:" + id + ",opWorkTp:" + tp + "}", "qr");
