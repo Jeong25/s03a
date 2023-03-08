@@ -98,9 +98,10 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'flexDirection':'row',
             'alignItem':'center',
             'position' : 'relative',
-            'marginTop'  : '10%',
+            'marginTop'  : '5%',
             'borderBottomColor' : '#2D4B73',
             'borderBottomWidth' : 2.5,
+            'backgroundColor' : 'red'
         },
             
 
@@ -125,7 +126,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
 
         },
         'numBtnWrap' : {
-            'marginTop'  : '10%',
+            'marginTop'  : '5%',
         },
         'numLayer':{
             'flexDirection' : 'row',
@@ -147,6 +148,9 @@ export const styleSheet = (windowHeight, windowWidth) => {
         'eraseIcon': {
            'width' : 40,
            'height' : 40,            
+        },
+        "btnWrap":{
+            'marginBottom' : 10,
         },
 
         "saveBtn": {

@@ -96,7 +96,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'flexDirection': 'row',
             'alignItem': 'center',
             'position': 'relative',
-            'marginTop': '10%',
+            'marginTop': '5%',
             'borderBottomColor': '#2D4B73',
             'borderBottomWidth': 2.5,
         },
@@ -123,7 +123,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
 
         },
         'numBtnWrap': {
-            'marginTop': '10%',
+            'marginTop': '5%',
 
         },
         'numLayer': {
@@ -147,6 +147,11 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'width': 40,
             'height': 40,
         },
+
+        "btnWrap":{
+            'marginBottom' : 10,
+        },
+
 
         "saveBtn": {
             'backgroundColor': "#72ACFF",
