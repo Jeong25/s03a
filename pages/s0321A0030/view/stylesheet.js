@@ -22,6 +22,18 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'color': 'white',
             'fontSize': 28,
         },
+        'logoutBtn': {
+            'marginLeft': 'auto',
+            'width': 25,
+            'height': 25,
+        },
+        'logoutIcon' : {
+            'width' :'100%',
+            'height' :'100%'
+
+        },
+
+
         'contentsWrap': {
             'width' : '90%',
             'marginRight' : 'auto',
@@ -41,8 +53,8 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'width' : '100%',
             'flexDirection':'row',
             'alignItems':'center',
-            'justifyContent':'space-between',
-            'marginBottom': 20,
+            'justifyContent':'space-around',
+            'marginBottom' : '5%',
         },
         'centerBtn' : {
             'width' : 150,

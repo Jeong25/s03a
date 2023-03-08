@@ -26,6 +26,9 @@ const Main = (props) => {
     <View style={styles.wrap}>
       <View style={styles.topMenu}>
         <Text style={styles.topLogo}>AEGIS</Text>
+        <TouchableOpacity style={styles.logoutBtn} onPress={() => logout()}>
+          <Image source={require('../../common/img/logoutIcon.png')} style={styles.logoutIcon} />
+        </TouchableOpacity>
       </View>
       <ScrollView
         style={styles.contentsWrap}
@@ -64,9 +67,6 @@ const Main = (props) => {
               <Text style={styles.centerBtnText}>QR스캔</Text>
             </TouchableOpacity>
           </View>
-          {/* <TouchableOpacity style={styles.centerBtn} onPress={() => logout()}>
-            <Text style={styles.centerBtnText}>로그아웃</Text>
-          </TouchableOpacity> */}
         </View>
       </ScrollView>
     </View>
