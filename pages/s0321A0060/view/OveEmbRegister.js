@@ -77,6 +77,9 @@ const OveEmbRegister = (props) => {
           <Image source={require('../../common/img/backIcon.png')} style={styles.backIcon} />
         </TouchableOpacity>
         <Text style={styles.pageTitle}>난자세포 등록</Text>
+        <TouchableOpacity style={styles.backBtn} onPress={() => props.navigation.goBack()}>
+          <Image source={require('../../common/img/backIcon.png')} style={styles.backIcon} />
+        </TouchableOpacity>
       </View>
       <ScrollView
         style={styles.contentsWrap}
