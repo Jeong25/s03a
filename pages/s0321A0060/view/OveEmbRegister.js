@@ -134,8 +134,8 @@ const OveEmbRegister = (props) => {
         </View>
         <View style={styles.inputWrap}>
           <View style={styles.numInputWrap}>
-            <TextInput editable={false} style={styles.numInput} />
-            <Text style={styles.amount}>{`${inputData?.collectCnt}개`}</Text>
+            <TextInput editable={false} style={styles.numInput} value={inputData?.collectCnt}/>
+            <Text style={styles.amount}>개</Text>
           </View>
           <View style={styles.numBtnWrap}>
             <View style={styles.numLayer}>

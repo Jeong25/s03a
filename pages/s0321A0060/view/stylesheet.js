@@ -95,31 +95,37 @@ export const styleSheet = (windowHeight, windowWidth) => {
         },
 
         'numInputWrap': {
+            'flexDirection':'row',
+            'alignItem':'center',
             'position' : 'relative',
             'marginTop'  : '10%',
-
-        },
-        'numInput': {
-            'fontFamily': 'NotoSans-Bold',
-            'color': '#333',
-            'fontSize': 30,
-            'padding': 0,
-            'textAlign' : 'center',
             'borderBottomColor' : '#2D4B73',
             'borderBottomWidth' : 2.5,
         },
+            
+
+        'numInput': {
+            'width' : '100%',
+            'fontFamily': 'NotoSans-Bold',
+            'color': '#333',
+            'fontSize': 26,
+            'padding': 0,
+            'textAlign' : 'center',
+            'lineHeight' : 42,
+
+
+        },
+
         'amount': {
             'fontFamily': 'NotoSansKR-Bold',
             'color': '#d2d2d2',
             'fontSize': 26,
-            'lineHeight' : 40,
-            'position' : 'absolute',
-            'right' : 20,
+            'marginLeft' : 'auto',
+            'lineHeight' :42,
 
         },
         'numBtnWrap' : {
             'marginTop'  : '10%',
-
         },
         'numLayer':{
             'flexDirection' : 'row',
