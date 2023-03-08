@@ -101,7 +101,6 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'marginTop'  : '5%',
             'borderBottomColor' : '#2D4B73',
             'borderBottomWidth' : 2.5,
-            'backgroundColor' : 'red'
         },
             
 
