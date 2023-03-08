@@ -17,6 +17,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'width': '90%',
             'flexDirection': 'row',
             'alignItems': 'center',
+            'justifyContent' : 'space-between',
             'marginRight': 'auto',
             'marginLeft': 'auto',
             'position': 'relative',
@@ -25,9 +26,10 @@ export const styleSheet = (windowHeight, windowWidth) => {
         'backIcon': {
             'width': 30,
             'height': 30,
-            'position': 'absolute',
-            'left': 0,
-            'top' : -15,
+        },
+        'scanIcon': {
+            'width': 30,
+            'height': 30,
         },
         'pageTitle': {
             'marginRight': 'auto',
