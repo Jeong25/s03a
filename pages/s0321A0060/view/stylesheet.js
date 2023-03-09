@@ -17,6 +17,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'width': '90%',
             'flexDirection': 'row',
             'alignItems': 'center',
+            'justifyContent' : 'space-between',
             'marginRight': 'auto',
             'marginLeft': 'auto',
             'position': 'relative',
@@ -25,9 +26,10 @@ export const styleSheet = (windowHeight, windowWidth) => {
         'backIcon': {
             'width': 30,
             'height': 30,
-            'position': 'absolute',
-            'left': 0,
-            'top' : -15,
+        },
+        'scanIcon': {
+            'width': 30,
+            'height': 30,
         },
         'pageTitle': {
             'marginRight': 'auto',
@@ -93,31 +95,37 @@ export const styleSheet = (windowHeight, windowWidth) => {
         },
 
         'numInputWrap': {
+            'flexDirection':'row',
+            'alignItem':'center',
             'position' : 'relative',
-            'marginTop'  : '10%',
-
-        },
-        'numInput': {
-            'fontFamily': 'NotoSans-Bold',
-            'color': '#333',
-            'fontSize': 30,
-            'padding': 0,
-            'textAlign' : 'center',
+            'marginTop'  : '5%',
             'borderBottomColor' : '#2D4B73',
             'borderBottomWidth' : 2.5,
         },
+            
+
+        'numInput': {
+            'width' : '100%',
+            'fontFamily': 'NotoSans-Bold',
+            'color': '#333',
+            'fontSize': 26,
+            'padding': 0,
+            'textAlign' : 'center',
+            'lineHeight' : 42,
+
+
+        },
+
         'amount': {
             'fontFamily': 'NotoSansKR-Bold',
             'color': '#d2d2d2',
             'fontSize': 26,
-            'lineHeight' : 40,
-            'position' : 'absolute',
-            'right' : 20,
+            'marginLeft' : 'auto',
+            'lineHeight' :42,
 
         },
         'numBtnWrap' : {
-            'marginTop'  : '10%',
-
+            'marginTop'  : '5%',
         },
         'numLayer':{
             'flexDirection' : 'row',
@@ -139,6 +147,9 @@ export const styleSheet = (windowHeight, windowWidth) => {
         'eraseIcon': {
            'width' : 40,
            'height' : 40,            
+        },
+        "btnWrap":{
+            'marginBottom' : 10,
         },
 
         "saveBtn": {

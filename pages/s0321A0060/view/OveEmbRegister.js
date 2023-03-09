@@ -77,6 +77,9 @@ const OveEmbRegister = (props) => {
           <Image source={require('../../common/img/backIcon.png')} style={styles.backIcon} />
         </TouchableOpacity>
         <Text style={styles.pageTitle}>난자세포 등록</Text>
+        <TouchableOpacity style={styles.scannerBtn} onPress={() => props.navigation.goBack()}>
+          <Image source={require('../../common/img/scannerIcon.png')} style={styles.scanIcon} />
+        </TouchableOpacity>
       </View>
       <ScrollView
         style={styles.contentsWrap}
@@ -131,8 +134,8 @@ const OveEmbRegister = (props) => {
         </View>
         <View style={styles.inputWrap}>
           <View style={styles.numInputWrap}>
-            <TextInput editable={false} style={styles.numInput} />
-            <Text style={styles.amount}>{`${inputData?.collectCnt}개`}</Text>
+            <TextInput editable={false} style={styles.numInput} value={inputData?.collectCnt}/>
+            <Text style={styles.amount}>개</Text>
           </View>
           <View style={styles.numBtnWrap}>
             <View style={styles.numLayer}>

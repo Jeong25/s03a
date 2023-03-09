@@ -27,7 +27,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'height': 30,
             'position': 'absolute',
             'left': 0,
-            'top' : -15,
+            'top': -15,
         },
         'pageTitle': {
             'marginRight': 'auto',
@@ -36,38 +36,38 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'color': '#2D4B73',
             'fontSize': 22,
         },
-        'contentsWrap':{
-            'width' : '90%',
+        'contentsWrap': {
+            'width': '90%',
             'marginRight': 'auto',
             'marginLeft': 'auto',
             'marginTop': 30,
         },
-        'custInfoWrap' :{
-            'width' : '100%',
-        },
-        'infoLayer' :{
+        'custInfoWrap': {
             'width': '100%',
-            'flexDirection' : 'row',
-            'justifyContent' : 'space-between',
-            'marginBottom' : 10,
         },
-        'infoWrap' :{
-            'flexDirection' : 'row',
-            'width' : '50%',
+        'infoLayer': {
+            'width': '100%',
+            'flexDirection': 'row',
+            'justifyContent': 'space-between',
+            'marginBottom': 10,
+        },
+        'infoWrap': {
+            'flexDirection': 'row',
+            'width': '50%',
 
         },
         'infoLabel': {
-            'width' : 70,
-            'backgroundColor' : '#2D4B73',
-            'borderRadius' : 10,
-            'marginRight' : 10,
+            'width': 70,
+            'backgroundColor': '#2D4B73',
+            'borderRadius': 10,
+            'marginRight': 10,
 
         },
         'infoLabelText': {
             'fontFamily': 'NotoSansKR-Bold',
             'color': 'white',
             'fontSize': 16,
-            'textAlign':'center',
+            'textAlign': 'center',
 
         },
         'custSheetNum': {
@@ -93,58 +93,67 @@ export const styleSheet = (windowHeight, windowWidth) => {
         },
 
         'numInputWrap': {
-            'position' : 'relative',
-            'marginTop'  : '10%',
-
+            'flexDirection': 'row',
+            'alignItem': 'center',
+            'position': 'relative',
+            'marginTop': '5%',
+            'borderBottomColor': '#2D4B73',
+            'borderBottomWidth': 2.5,
         },
+
         'numInput': {
+            'width': '100%',
             'fontFamily': 'NotoSans-Bold',
             'color': '#333',
-            'fontSize': 30,
+            'fontSize': 26,
             'padding': 0,
-            'textAlign' : 'center',
-            'borderBottomColor' : '#2D4B73',
-            'borderBottomWidth' : 2.5,
+            'textAlign': 'center',
+            'lineHeight': 42,
+
+
         },
         'amount': {
             'fontFamily': 'NotoSansKR-Bold',
             'color': '#d2d2d2',
             'fontSize': 26,
-            'lineHeight' : 40,
-            'position' : 'absolute',
-            'right' : 20,
+            'marginLeft': 'auto',
+            'lineHeight': 42,
 
         },
-        'numBtnWrap' : {
-            'marginTop'  : '10%',
+        'numBtnWrap': {
+            'marginTop': '5%',
 
         },
-        'numLayer':{
-            'flexDirection' : 'row',
-            'alignItems' : 'center',
-            'justifyContent' : 'space-between',
-            'paddingHorizontal':20,
-            'marginBottom'  : '10%',
+        'numLayer': {
+            'flexDirection': 'row',
+            'alignItems': 'center',
+            'justifyContent': 'space-between',
+            'paddingHorizontal': 20,
+            'marginBottom': '10%',
 
         },
         'number': {
-            'width' : 40,
-            'height' : 40,
+            'width': 40,
+            'height': 40,
             'fontFamily': 'NotoSans-Regular',
-            'textAlign' : 'center',
+            'textAlign': 'center',
             'color': '#2D4B73',
             'fontSize': 30,
-            'lineHeight' : 40,
+            'lineHeight': 40,
         },
         'eraseIcon': {
-           'width' : 40,
-           'height' : 40,            
+            'width': 40,
+            'height': 40,
         },
+        "btnWrap":{
+            'marginBottom' : 10,
+        },
+
 
         "saveBtn": {
             'backgroundColor': "#72ACFF",
             'borderRadius': 10,
-            'marginBottom' : 10,
+            'marginBottom': 10,
         },
         "printBtn": {
             'backgroundColor': "#72ACFF",
@@ -152,7 +161,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
         },
         "btnText": {
             'fontSize': 24,
-            'lineHeight' : 60,
+            'lineHeight': 60,
             "fontFamily": "Apple SD Gothic Neo",
             "fontWeight": '700',
             'color': 'white',
@@ -160,7 +169,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'textAlignVertical': 'center',
 
         },
-    
+
 
 
 
