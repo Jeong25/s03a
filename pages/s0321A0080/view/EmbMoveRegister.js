@@ -51,13 +51,11 @@ const EmbMoveRegister = (props) => {
       try {
         setSaveFlag(false)
         const res = await updateInsemCellCustMob(inputData)
-        Alert.alert('', res, [
-          {
-            text: '확인', onPress: () => {
-              setSaveFlag(true)
-            }
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setSaveFlag(true)
           }
-        ])
+        }])
       } catch (error) {
         Alert.alert('Error', '에러 발생')
         console.log(error)

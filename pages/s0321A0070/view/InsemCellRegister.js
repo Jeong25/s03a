@@ -55,6 +55,7 @@ const InsemCellRegister = (props) => {
           {
             text: '확인', onPress: () => {
               setSaveFlag(true)
+              getData()
             }
           }
         ])

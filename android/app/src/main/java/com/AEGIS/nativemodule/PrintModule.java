@@ -54,6 +54,7 @@ public class PrintModule extends ReactContextBaseJavaModule {
             PrinterInfo mPrinterInfo = mPrinter.getPrinterInfo();
 
             mPrinterInfo.printerModel = PrinterInfo.Model.PT_P950NW;
+            // mPrinterInfo.printerModel = PrinterInfo.Model.PT_P900W;
             mPrinterInfo.port = PrinterInfo.Port.NET;
             mPrinterInfo.ipAddress = "192.168.10.7";
             mPrinterInfo.printMode = PrinterInfo.PrintMode.FIT_TO_PAGE;
@@ -64,13 +65,16 @@ public class PrintModule extends ReactContextBaseJavaModule {
 
             // show(String.valueOf(LabelInfo.PT.W12.ordinal()), 1);
             // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
+            // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
             if (mPrinter.startCommunication()) {
                 show("Printer Connect", 1);
+                // if (mPrinter.startPTTPrint(1, null)) {
                 // if (mPrinter.startPTTPrint(1, "UTF-8")) {
+                // if (mPrinter.startPTTPrint(1, "UTF-16LE")) {
+                // if (mPrinter.startPTTPrint(1, "EUC-KR")) {
                 // if (mPrinter.startPTTPrint(1, "iso-8859-1")) {
                 // if (mPrinter.startPTTPrint(1, "x-windows-949")) {
-                // if (mPrinter.startPTTPrint(1, "ksc5601")) {
-                if (mPrinter.startPTTPrint(1, "EUC-KR")) {
+                if (mPrinter.startPTTPrint(1, "ksc5601")) {
                     mPrinter.replaceTextIndex("{custOpId:" + id + ",opWorkTp:" + tp + "}", 0);
                     mPrinter.replaceTextIndex(name, 1);
                     // mPrinter.replaceTextName("{custOpId:" + id + ",opWorkTp:" + tp + "}", "qr");
@@ -118,16 +122,16 @@ public class PrintModule extends ReactContextBaseJavaModule {
         return constants;
     }
 
-    private Bitmap generateQrCode(String id, String tp) throws Exception {
-        try {
-            BarcodeEncoder encoder = new BarcodeEncoder();
-            String params = "{custOpId:" + id + ",opWorkTp:" + tp + "}";
-            return encoder.encodeBitmap(params, BarcodeFormat.QR_CODE, 11, 11);
-        } catch (Exception e) {
-            show(e.getMessage(), 2);
-            throw e;
-        }
-    }
+    // private Bitmap generateQrCode(String id, String tp) throws Exception {
+    //     try {
+    //         BarcodeEncoder encoder = new BarcodeEncoder();
+    //         String params = "{custOpId:" + id + ",opWorkTp:" + tp + "}";
+    //         return encoder.encodeBitmap(params, BarcodeFormat.QR_CODE, 11, 11);
+    //     } catch (Exception e) {
+    //         show(e.getMessage(), 2);
+    //         throw e;
+    //     }
+    // }
 
     // private void saveBitmapToJpeg(Bitmap bitmap, String name) {
     // //저장할 파일 이름

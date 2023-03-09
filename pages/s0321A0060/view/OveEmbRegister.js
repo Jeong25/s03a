@@ -16,7 +16,7 @@ const OveEmbRegister = (props) => {
     const hospId = await AsyncStorage.getItem('hospId')
     const userId = await AsyncStorage.getItem('userId')
     let workerArr = []
-    
+
     try {
       const res1 = await retrieveWorker(hospId, 'R')
       res1.map(v => (
@@ -26,13 +26,11 @@ const OveEmbRegister = (props) => {
 
       const res2 = await retrieveOveCellCustMob(hospId)
       if (res2 === null) {
-        Alert.alert('', '등록된 정보가 없습니다.', [
-          {
-            text: '확인', onPress: () => {
-              props.navigation.goBack()
-            }
+        Alert.alert('', '등록된 정보가 없습니다.', [{
+          text: '확인', onPress: () => {
+            props.navigation.goBack()
           }
-        ])
+        }])
         return
       }
       if (res2.collectCnt === null) {
@@ -51,9 +49,11 @@ const OveEmbRegister = (props) => {
       try {
         setSaveFlag(false)
         const res = await updateInsemCellCustMob(inputData)
-        Alert.alert('', res, [
-          { text: '확인', onPress: () => console.log('등록') }
-        ])
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setSaveFlag(true)
+          }
+        }])
       } catch (error) {
         Alert.alert('Error', '에러 발생')
         console.log(error)

@@ -3,7 +3,7 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
 import { Camera, CameraType } from "react-native-camera-kit";
-import { qrScan } from '../../common/repository/repository';
+import { qrScanEvent } from '../../common/repository/repository';
 import { styleSheet } from './stylesheet';
 import { NativeModules } from 'react-native';     // <== 모듈 (@민성현 추가)
 
@@ -35,19 +35,19 @@ const QrScan = (props) => {
     }
   }
 
-  const scan = (custOpId, opWorkTp) => {
+  const scan = async (custOpId, opWorkTp) => {
     try {
       if (inputData.opWorkEvent === '02') {
-        const res = qrScan(custOpId, opWorkTp, inputData)
+        const res = await qrScanEvent(custOpId, opWorkTp, inputData)
         Alert.alert('', res)
       } else if (inputData.opWorkEvent === '03') {
-        const res = qrScan(custOpId, opWorkTp, inputData)
+        const res = await qrScanEvent(custOpId, opWorkTp, inputData)
         Alert.alert('', res)
       } else if (inputData.opWorkEvent === '04') {
-        const res = qrScan(custOpId, opWorkTp, inputData)
+        const res = await qrScanEvent(custOpId, opWorkTp, inputData)
         Alert.alert('', res)
       } else if (inputData.opWorkEvent === '06') {
-        const res = qrScan(custOpId, opWorkTp, inputData)
+        const res = await qrScanEvent(custOpId, opWorkTp, inputData)
         Alert.alert('', res)
       } else if (inputData.opWorkEvent === '14' || inputData.opWorkEvent === '15') {
         props.navigation.navigate('EmbMoveRegister', { opWorkEvent: inputData.opWorkEvent, custOpId: custOpId })
@@ -65,7 +65,7 @@ const QrScan = (props) => {
 
   const printQr = async (custOpId, opWorkTp) => {
     try {
-      PrintModule.transfer(custOpId.toString(), opWorkTp.toString(), "한글출력");
+      PrintModule.transfer(custOpId.toString(), opWorkTp.toString(), "한글");
     } catch (e) {
       console.log(e)
     }
@@ -99,7 +99,7 @@ const QrScan = (props) => {
         <TouchableOpacity style={styles.changeBtn} onPress={() => { setCameraFront(!cameraFront) }}>
           <Image source={require('../../common/img/change.png')} style={styles.btnIcon} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.searchBtn} onPress={() => { scan(2023, 'O') }}>
+        <TouchableOpacity style={styles.searchBtn} onPress={() => { scan(2005, 'O') }}>
           <Image source={require('../../common/img/magnifierIcon-w.png')} style={styles.btnIcon} />
         </TouchableOpacity>
       </View>
