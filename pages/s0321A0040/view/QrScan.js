@@ -27,9 +27,9 @@ const QrScan = (props) => {
     }
     setScaned(false)
     try {
-      const qrData = JSON.parse(event)
-      const custOpId = qrData.custOpId
-      const opWorkTp = qrData.opWorkTp
+      const qrData = event
+      const custOpId = qrData.split(',')[0]
+      const opWorkTp = qrData.split(',')[1]
       scan(custOpId, opWorkTp)
     } catch (error) {
     }
@@ -39,18 +39,39 @@ const QrScan = (props) => {
     try {
       if (inputData.opWorkEvent === '02') {
         const res = await qrScanEvent(custOpId, opWorkTp, inputData)
-        Alert.alert('', res)
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setScaned(true)
+          }
+        }])
       } else if (inputData.opWorkEvent === '03') {
         const res = await qrScanEvent(custOpId, opWorkTp, inputData)
-        Alert.alert('', res)
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setScaned(true)
+          }
+        }])
       } else if (inputData.opWorkEvent === '04') {
         const res = await qrScanEvent(custOpId, opWorkTp, inputData)
-        Alert.alert('', res)
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setScaned(true)
+          }
+        }])
       } else if (inputData.opWorkEvent === '06') {
         const res = await qrScanEvent(custOpId, opWorkTp, inputData)
-        Alert.alert('', res)
-      } else if (inputData.opWorkEvent === '14' || inputData.opWorkEvent === '15') {
+        Alert.alert('', res, [{
+          text: '확인', onPress: () => {
+            setScaned(true)
+          }
+        }])
+      } else if (inputData.opWorkEvent === '14') {
         props.navigation.navigate('EmbMoveRegister', { opWorkEvent: inputData.opWorkEvent, custOpId: custOpId })
+        setTimeout(() => {
+          setScaned(true)
+        }, 5000)
+      } else if (inputData.opWorkEvent === '15') {
+        // 신규 화면 이동 후 비교, 시술실 custOpId랑 스캔 custOpId 비교 일치하면 자동 저장
       } else {
         printQr(custOpId.toString(), opWorkTp.toString());
       }
@@ -58,14 +79,17 @@ const QrScan = (props) => {
       Alert.alert('Error', '에러 발생')
       console.log(e)
     }
-    setTimeout(() => {
-      setScaned(true)
-    }, 5000)
+    // setTimeout(() => {
+    //   setScaned(true)
+    // }, 5000)
   }
 
   const printQr = async (custOpId, opWorkTp) => {
     try {
       PrintModule.transfer(custOpId.toString(), opWorkTp.toString(), "한글");
+      setTimeout(() => {
+        setScaned(true)
+      }, 10000)
     } catch (e) {
       console.log(e)
     }

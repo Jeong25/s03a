@@ -25,8 +25,8 @@ const QrScanCell = (props) => {
     }
     setScaned(false)
     try {
-      const qrData = JSON.parse(event)
-      const custOpId = qrData.custOpId
+      const qrData = event
+      const custOpId = qrData.split(',')[0]
       if (!inputData.custOpId || inputData.custOpId === null) {
         await fistScan(custOpId)
       } else {
@@ -46,10 +46,10 @@ const QrScanCell = (props) => {
         } else {
           Alert.alert('', '고객 정보 확인', [{
             text: '확인', onPress: () => {
+              setInputData({ ...inputData, custOpId: res.custOpId, locationNm: `고객명: ${res.custNm}` })
               setScaned(true)
             }
           }])
-          setInputData({ ...inputData, custOpId: res.custOpId, locationNm: `고객명: ${res.custNm}` })
         }
       }
     } catch (e) {
@@ -62,17 +62,14 @@ const QrScanCell = (props) => {
   }
 
   const secondScan = async (custOpId) => {
-    console.log(JSON.stringify(inputData, null, 4))
     if (inputData.opWorkEvent === '13') {
-      if (custOpId === inputData.custOpId) {
-        Alert.alert('', '배우자 정보 일치', [
-          {
-            text: '확인', onPress: () => {
-              props.navigation.navigate('InsemCellRegister', { opWorkEvent: inputData.opWorkEvent, custOpId: inputData.custOpId })
-              setScaned(true)
-            }
+      if (Number(custOpId) === Number(inputData.custOpId)) {
+        Alert.alert('', '배우자 정보 일치', [{
+          text: '확인', onPress: () => {
+            props.navigation.navigate('InsemCellRegister', { opWorkEvent: inputData.opWorkEvent, custOpId: inputData.custOpId })
+            setScaned(true)
           }
-        ])
+        }])
       } else {
         Alert.alert('', '배우자 정보 불일치', [{
           text: '확인', onPress: () => {
@@ -102,7 +99,10 @@ const QrScanCell = (props) => {
         <TouchableOpacity style={styles.changeBtn} onPress={() => { setCameraFront(!cameraFront) }}>
           <Image source={require('../../common/img/change.png')} style={styles.btnIcon} />
         </TouchableOpacity>
-        {/* <TouchableOpacity style={styles.searchBtn} onPress={() => { secondScan(2005, 'O') }}>
+        {/* <TouchableOpacity style={styles.changeBtn} onPress={() => { fistScan(2012, 'O') }}>
+          <Image source={require('../../common/img/change.png')} style={styles.btnIcon} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.searchBtn} onPress={() => { secondScan(2012, 'O') }}>
           <Image source={require('../../common/img/magnifierIcon-w.png')} style={styles.btnIcon} />
         </TouchableOpacity> */}
       </View>

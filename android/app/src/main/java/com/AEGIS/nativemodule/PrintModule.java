@@ -59,26 +59,17 @@ public class PrintModule extends ReactContextBaseJavaModule {
             mPrinterInfo.ipAddress = "192.168.10.7";
             mPrinterInfo.printMode = PrinterInfo.PrintMode.FIT_TO_PAGE;
             mPrinterInfo.paperSize = PrinterInfo.PaperSize.CUSTOM;
-            mPrinterInfo.labelNameIndex = LabelInfo.PT.W12.ordinal();
+            // mPrinterInfo.labelNameIndex = LabelInfo.PT.W12.ordinal();
+            mPrinterInfo.labelNameIndex = LabelInfo.PT.W6.ordinal();
 
             mPrinter.setPrinterInfo(mPrinterInfo);
 
-            // show(String.valueOf(LabelInfo.PT.W12.ordinal()), 1);
-            // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
             // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
             if (mPrinter.startCommunication()) {
                 show("Printer Connect", 1);
-                // if (mPrinter.startPTTPrint(1, null)) {
-                // if (mPrinter.startPTTPrint(1, "UTF-8")) {
-                // if (mPrinter.startPTTPrint(1, "UTF-16LE")) {
-                // if (mPrinter.startPTTPrint(1, "EUC-KR")) {
-                // if (mPrinter.startPTTPrint(1, "iso-8859-1")) {
-                // if (mPrinter.startPTTPrint(1, "x-windows-949")) {
-                if (mPrinter.startPTTPrint(1, "ksc5601")) {
-                    mPrinter.replaceTextIndex("{custOpId:" + id + ",opWorkTp:" + tp + "}", 0);
-                    mPrinter.replaceTextIndex(name, 1);
-                    // mPrinter.replaceTextName("{custOpId:" + id + ",opWorkTp:" + tp + "}", "qr");
-                    // mPrinter.replaceTextName(name, "name");
+                if (mPrinter.startPTTPrint(2, "UTF-8")) {
+                    mPrinter.replaceTextName(id + "," + tp, "qr");
+                    mPrinter.replaceTextName(name, "name");
                     PrinterStatus result = mPrinter.flushPTTPrint();
                     if (result.errorCode != PrinterInfo.ErrorCode.ERROR_NONE) {
                         show(String.valueOf(result.errorCode), 1);
@@ -123,14 +114,14 @@ public class PrintModule extends ReactContextBaseJavaModule {
     }
 
     // private Bitmap generateQrCode(String id, String tp) throws Exception {
-    //     try {
-    //         BarcodeEncoder encoder = new BarcodeEncoder();
-    //         String params = "{custOpId:" + id + ",opWorkTp:" + tp + "}";
-    //         return encoder.encodeBitmap(params, BarcodeFormat.QR_CODE, 11, 11);
-    //     } catch (Exception e) {
-    //         show(e.getMessage(), 2);
-    //         throw e;
-    //     }
+    // try {
+    // BarcodeEncoder encoder = new BarcodeEncoder();
+    // String params = "{custOpId:" + id + ",opWorkTp:" + tp + "}";
+    // return encoder.encodeBitmap(params, BarcodeFormat.QR_CODE, 11, 11);
+    // } catch (Exception e) {
+    // show(e.getMessage(), 2);
+    // throw e;
+    // }
     // }
 
     // private void saveBitmapToJpeg(Bitmap bitmap, String name) {

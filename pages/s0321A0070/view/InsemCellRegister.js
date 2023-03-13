@@ -16,7 +16,7 @@ const InsemCellRegister = (props) => {
     const hospId = await AsyncStorage.getItem('hospId')
     const userId = await AsyncStorage.getItem('userId')
     let workerArr = []
-    
+
     try {
       const res1 = await retrieveWorker(hospId, 'R')
       res1.map(v => (
@@ -36,9 +36,9 @@ const InsemCellRegister = (props) => {
         return
       }
       if (res2.collectCnt === null) {
-        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: props.route.params?.opWorkEvent })
+        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: props.route.params?.opWorkEvent, workerId: userId })
       } else {
-        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: props.route.params?.opWorkEvent })
+        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: props.route.params?.opWorkEvent, workerId: userId })
       }
     } catch (error) {
       console.log(error)

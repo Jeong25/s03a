@@ -36,9 +36,9 @@ const EmbMoveRegister = (props) => {
         return
       }
       if (res2.collectCnt === null) {
-        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: props.route.params?.opWorkEvent })
+        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: props.route.params?.opWorkEvent, workerId: userId })
       } else {
-        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: props.route.params?.opWorkEvent })
+        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: props.route.params?.opWorkEvent, workerId: userId })
       }
     } catch (error) {
       console.log(error)

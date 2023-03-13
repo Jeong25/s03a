@@ -34,9 +34,9 @@ const OveEmbRegister = (props) => {
         return
       }
       if (res2.collectCnt === null) {
-        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: '12' })
+        setInputData({ ...res2, collectCnt: '', loginId: userId, opWorkEvent: '12', workerId: userId })
       } else {
-        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: '12' })
+        setInputData({ ...res2, collectCnt: res2.collectCnt.toString(), loginId: userId, opWorkEvent: '12', workerId: userId })
       }
     } catch (error) {
       console.log(error)
