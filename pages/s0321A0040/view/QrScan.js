@@ -3,7 +3,7 @@ import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Alert, Dimensions, Image, Text, TouchableOpacity, View } from 'react-native';
 import { Camera, CameraType } from "react-native-camera-kit";
-import { qrScanEvent } from '../../common/repository/repository';
+import { qrScanEvent, kakaoMessage } from '../../common/repository/repository';
 import { styleSheet } from './stylesheet';
 import { NativeModules } from 'react-native';     // <== 모듈 (@민성현 추가)
 
@@ -86,7 +86,9 @@ const QrScan = (props) => {
 
   const printQr = async (custOpId, opWorkTp) => {
     try {
-      PrintModule.transfer(custOpId.toString(), opWorkTp.toString(), "한글");
+      const res = await kakaoMessage(custOpId, inputData.opWorkEvent)
+      const custNm = res.custNm
+      PrintModule.transfer(1, custOpId.toString(), opWorkTp.toString(), custNm)
       setTimeout(() => {
         setScaned(true)
       }, 10000)

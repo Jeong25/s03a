@@ -30,4 +30,13 @@ const qrScanEvent = async (custOpId, opWorkTp, params) => {
     return res.data.message;
 }
 
-export { retrieveCode, retrieveWorker, retrieveOveCellCustMob, retrieveInsemCellCustMob, updateInsemCellCustMob, qrScanEvent };
+const kakaoMessage = async (custOpId, opWorkEvent) => {
+    const res = await API_GET(`/rest/v1/s032200010/retrieve-kakao-text?custOpId=${custOpId}&opWorkEvent=${opWorkEvent}`);
+    return res.data.data;
+}
+
+export {
+    retrieveCode, retrieveWorker, retrieveOveCellCustMob,
+    retrieveInsemCellCustMob, updateInsemCellCustMob, qrScanEvent,
+    kakaoMessage
+};

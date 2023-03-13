@@ -48,26 +48,28 @@ public class PrintModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void transfer(String id, String tp, String name) throws Exception {
+    public void transfer(int num, String id, String tp, String name) throws Exception {
         try {
             final Printer mPrinter = new Printer();
             PrinterInfo mPrinterInfo = mPrinter.getPrinterInfo();
 
             mPrinterInfo.printerModel = PrinterInfo.Model.PT_P950NW;
-            // mPrinterInfo.printerModel = PrinterInfo.Model.PT_P900W;
             mPrinterInfo.port = PrinterInfo.Port.NET;
-            mPrinterInfo.ipAddress = "192.168.10.7";
-            mPrinterInfo.printMode = PrinterInfo.PrintMode.FIT_TO_PAGE;
-            mPrinterInfo.paperSize = PrinterInfo.PaperSize.CUSTOM;
-            // mPrinterInfo.labelNameIndex = LabelInfo.PT.W12.ordinal();
-            mPrinterInfo.labelNameIndex = LabelInfo.PT.W6.ordinal();
+            mPrinterInfo.ipAddress = "192.168.10.15";
+            mPrinterInfo.printMode = PrinterInfo.PrintMode.FIT_TO_PAPER;
+            if (num == 1) {
+                mPrinterInfo.labelNameIndex = LabelInfo.PT.W12.ordinal(); // num 1 => 12mm
+            } else {
+                mPrinterInfo.labelNameIndex = LabelInfo.PT.W6.ordinal(); // num 2 => 6mm
+            }
+            // mPrinterInfo.printerModel = PrinterInfo.Model.PT_P900W;
 
             mPrinter.setPrinterInfo(mPrinterInfo);
 
             // show(String.valueOf(mPrinter.checkLabelInPrinter()), 1);
             if (mPrinter.startCommunication()) {
                 show("Printer Connect", 1);
-                if (mPrinter.startPTTPrint(2, "UTF-8")) {
+                if (mPrinter.startPTTPrint(num, "UTF-8")) {
                     mPrinter.replaceTextName(id + "," + tp, "qr");
                     mPrinter.replaceTextName(name, "name");
                     PrinterStatus result = mPrinter.flushPTTPrint();
@@ -79,6 +81,7 @@ public class PrintModule extends ReactContextBaseJavaModule {
             } else {
                 show("Printer Error", 1);
             }
+
             // new Thread(new Runnable() {
             // @Override
             // public void run() {
@@ -93,8 +96,9 @@ public class PrintModule extends ReactContextBaseJavaModule {
             // }
             // }
             // }).start();
+
         } catch (Exception e) {
-            show(e.getMessage(), 2);
+            show(e.getMessage(), 1);
         }
     }
 
