@@ -18,7 +18,7 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'marginLeft' : 'auto',
         },
         'topLogo': {
-            'fontFamily': 'NotoSerifKR-Regular',
+            'fontFamily': 'NotoSerifKR-Bold',
             'color': 'white',
             'fontSize': 28,
         },
@@ -32,8 +32,6 @@ export const styleSheet = (windowHeight, windowWidth) => {
             'height' :'100%'
 
         },
-
-
         'contentsWrap': {
             'width' : '90%',
             'marginRight' : 'auto',
